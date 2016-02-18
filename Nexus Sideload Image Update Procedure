@@ -1,7 +1,7 @@
 # Android Nexus Sideload Image Update Procedure
 # Sideloading is used to retain user data on updates using OTA images.
 # The bootloader does not require to be unlocked in order to apply OTA updates.
-# Newer versions of Android, 5.1 and later, require at ADB 1.0.32+.
+# When sideloading newer versions of Android (e.g. 5.1 and later), ADB version 1.0.32+ is required.
 
 # Step one - find the URL to the OTA update for phone.  Verify the version matches current Android version and phone vendor/carrier, etc.
 
