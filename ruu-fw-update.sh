@@ -22,4 +22,4 @@ sudo fastboot reboot
 # Optionally the phone can be rebooted to the bootloader to check the 
 # firmware versions after RUU updates are applied
 sudo fastboot reboot bootloader
-sudo fastboot getvar all
+sudo fastboot getvar all 2>&1 | tee fastboot_device_details.txt
