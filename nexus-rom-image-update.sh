@@ -5,22 +5,25 @@
 # General adb notes - http://lifehacker.com/the-most-useful-things-you-can-do-with-adb-and-fastboot-1590337225
 
 # Verify phone/device is detected by system
-adb devices
+sudo adb devices
 
 # If adb does not show any devices restart the adb service
-sudo adb kill-server
-sudo adb start-server
+sudo adb kill-server;sudo adb start-server
 
 adb devices
+read -p "Press [Enter] to proceed with upgrading the listed Android device"
 adb reboot bootloader
+sleep 15
 fastboot devices
+read -p "Press [Enter] to proceed with the fastboot oem unlock for the listed Android device"
 fastboot oem unlock
 
-# All in one update (./flash-all.sh) can be performed, individual updates preferred
-# Bootloader, recovery, and radio versions can be checked on the phone display or executing
-fastboot getvar all
+# Display device details and save details to a file
+fastboot getvar all 2>&1 | tee fastboot_device_details.txt
 
 # Flash the required image files or re-install existing versions
+# All in one update (./flash-all.sh) can be performed, individual updates preferred
+# Bootloader, recovery, and radio versions can be checked on the phone display or executing
 fastboot flash bootloader <bootloader image>
 fastboot reboot-bootloader
 fastboot flash radio <radio image>
