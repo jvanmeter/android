@@ -5,7 +5,7 @@
 # when running these commands without elevated credentials include: no 
 # priviledge, fastboot hanging, and fastboot returning to the prompt without
 # action or feedback.
-adb reboot bootloader
+sudo adb reboot bootloader
 sudo fastboot oem rebootRUU
 sudo fastboot flash zip <RUU firmware package.zip>
 
